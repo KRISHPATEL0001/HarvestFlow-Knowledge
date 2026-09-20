@@ -27,7 +27,7 @@ export const WhyAccordion: React.FC<Props> = ({ whyId }) => {
               role="button"
               tabIndex={0}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flex: 1, flexWrap: 'wrap', minWidth: 0 }}>
                 <span style={{ fontSize: '1.1rem' }}>💡</span>
                 <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{item.question}</span>
                 <EvidenceBadge type={item.evidenceType} showTooltip={false} />

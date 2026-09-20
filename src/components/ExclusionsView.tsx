@@ -87,7 +87,7 @@ export const ExclusionsView: React.FC<Props> = ({ onNavigateHome }) => {
               <span className="project-tag" style={{ fontSize: '0.65rem' }}>{item.category}</span>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginTop: '0.75rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '1rem', marginTop: '0.75rem' }}>
               <div style={{ background: 'var(--bg-tertiary)', padding: '0.85rem', borderRadius: '6px' }}>
                 <div style={{ fontSize: '0.72rem', color: 'var(--accent-amber)', fontWeight: 700, textTransform: 'uppercase' }}>
                   Why It Looks Attractive
@@ -151,7 +151,7 @@ export const SourcesView: React.FC<Props> = ({ onNavigateHome }) => {
           Official Government Portals & Guidelines
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1rem' }}>
           <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-medium)', borderRadius: '8px', padding: '1.25rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
               <h3 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '1.1rem' }}>Madhya Pradesh e-Uparjan</h3>

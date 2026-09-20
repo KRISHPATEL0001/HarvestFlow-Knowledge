@@ -17,6 +17,14 @@ interface Props {
   onNavigateHome: () => void;
 }
 
+const formatInline = (str: string): string => {
+  return str
+    .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #f8fafc">$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/`([^`]+)`/g, '<code style="color: #38bdf8; background: rgba(255,255,255,0.08); padding: 0.1rem 0.35rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.88em;">$1</code>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #34d399; text-decoration: underline; text-underline-offset: 3px;">$1 ↗</a>');
+};
+
 export const ChapterViewer: React.FC<Props> = ({
   chapter,
   onNavigateChapter,
@@ -54,24 +62,38 @@ export const ChapterViewer: React.FC<Props> = ({
     }
   };
 
-  // Helper to format basic markdown (paragraphs, bold, quotes, lists, code)
+  // Helper to format markdown (paragraphs, bold, quotes, lists, code, tables)
   const renderMarkdown = (text: string) => {
     const lines = text.split('\n');
     const elements: React.ReactNode[] = [];
     let inList = false;
+    let listType: 'ul' | 'ol' = 'ul';
     let listItems: string[] = [];
     let inPre = false;
     let preContent: string[] = [];
+    let inTable = false;
+    let tableHeader: string[] | null = null;
+    let tableRows: string[][] = [];
 
     const flushList = () => {
       if (inList && listItems.length > 0) {
-        elements.push(
-          <ul key={`ul-${elements.length}`} style={{ margin: '0.75rem 0 1.25rem 1.5rem', color: '#cbd5e1' }}>
-            {listItems.map((li, idx) => (
-              <li key={idx} style={{ marginBottom: '0.35rem' }} dangerouslySetInnerHTML={{ __html: formatInline(li) }} />
-            ))}
-          </ul>
-        );
+        if (listType === 'ol') {
+          elements.push(
+            <ol key={`ol-${elements.length}`} style={{ margin: '0.75rem 0 1.25rem 1.5rem', color: '#cbd5e1' }}>
+              {listItems.map((li, idx) => (
+                <li key={idx} style={{ marginBottom: '0.35rem' }} dangerouslySetInnerHTML={{ __html: formatInline(li) }} />
+              ))}
+            </ol>
+          );
+        } else {
+          elements.push(
+            <ul key={`ul-${elements.length}`} style={{ margin: '0.75rem 0 1.25rem 1.5rem', color: '#cbd5e1' }}>
+              {listItems.map((li, idx) => (
+                <li key={idx} style={{ marginBottom: '0.35rem' }} dangerouslySetInnerHTML={{ __html: formatInline(li) }} />
+              ))}
+            </ul>
+          );
+        }
         listItems = [];
         inList = false;
       }
@@ -89,15 +111,71 @@ export const ChapterViewer: React.FC<Props> = ({
       }
     };
 
-    const formatInline = (str: string): string => {
-      return str
-        .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #f8fafc">$1</strong>')
-        .replace(/\*(.*?)\*/g, '<em>$1</em>')
-        .replace(/`([^`]+)`/g, '<code style="color: #38bdf8; background: rgba(255,255,255,0.08); padding: 0.1rem 0.35rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.88em;">$1</code>')
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #34d399; text-decoration: underline; text-underline-offset: 3px;">$1 ↗</a>');
+    const flushTable = () => {
+      if (inTable && (tableHeader || tableRows.length > 0)) {
+        const headers = tableHeader || (tableRows.length > 0 ? tableRows[0] : []);
+        const rows = tableHeader ? tableRows : tableRows.slice(1);
+        elements.push(
+          <div key={`table-${elements.length}`} className="table-container">
+            <table className="styled-table">
+              {headers && headers.length > 0 && (
+                <thead>
+                  <tr>
+                    {headers.map((h, i) => (
+                      <th key={i} dangerouslySetInnerHTML={{ __html: formatInline(h) }} />
+                    ))}
+                  </tr>
+                </thead>
+              )}
+              <tbody>
+                {rows.map((row, rIdx) => (
+                  <tr key={rIdx}>
+                    {row.map((cell, cIdx) => (
+                      <td key={cIdx} dangerouslySetInnerHTML={{ __html: formatInline(cell) }} />
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+        tableHeader = null;
+        tableRows = [];
+        inTable = false;
+      }
     };
 
     lines.forEach((line, index) => {
+      const trimmed = line.trim();
+
+      // Check if line is a table row
+      if (trimmed.startsWith('|') && trimmed.endsWith('|') && trimmed.length > 1) {
+        flushList();
+        flushPre();
+        inTable = true;
+
+        // Check if it's a separator line like |---|---|
+        if (/^\|[\s\-:|]+\|$/.test(trimmed)) {
+          if (tableRows.length > 0 && !tableHeader) {
+            tableHeader = tableRows[0];
+            tableRows = [];
+          }
+          return;
+        }
+
+        // Split cells
+        const cells = trimmed
+          .slice(1, -1)
+          .split(/(?<!\\)\|/)
+          .map(c => c.replace(/\\\|/g, '|').trim());
+
+        tableRows.push(cells);
+        return;
+      }
+
+      // If we were in a table and this line is not a table row, flush table
+      flushTable();
+
       if (line.startsWith('```')) {
         if (inPre) {
           flushPre();
@@ -154,20 +232,28 @@ export const ChapterViewer: React.FC<Props> = ({
       }
 
       if (line.startsWith('- ') || line.startsWith('• ')) {
+        if (inList && listType !== 'ul') {
+          flushList();
+        }
         inList = true;
+        listType = 'ul';
         listItems.push(line.replace(/^[-•]\s*/, ''));
         return;
       }
 
       if (/^\d+\.\s/.test(line)) {
+        if (inList && listType !== 'ol') {
+          flushList();
+        }
         inList = true;
+        listType = 'ol';
         listItems.push(line.replace(/^\d+\.\s*/, ''));
         return;
       }
 
       flushList();
 
-      if (line.trim() === '') {
+      if (trimmed === '') {
         return;
       }
 
@@ -178,6 +264,7 @@ export const ChapterViewer: React.FC<Props> = ({
 
     flushList();
     flushPre();
+    flushTable();
 
     return elements;
   };
@@ -242,7 +329,7 @@ export const ChapterViewer: React.FC<Props> = ({
                   <thead>
                     <tr>
                       {section.table.headers.map((h, idx) => (
-                        <th key={idx}>{h}</th>
+                        <th key={idx} dangerouslySetInnerHTML={{ __html: formatInline(h) }} />
                       ))}
                     </tr>
                   </thead>
@@ -250,7 +337,7 @@ export const ChapterViewer: React.FC<Props> = ({
                     {section.table.rows.map((row, rIdx) => (
                       <tr key={rIdx}>
                         {row.map((cell, cIdx) => (
-                          <td key={cIdx}>{cell}</td>
+                          <td key={cIdx} dangerouslySetInnerHTML={{ __html: formatInline(cell) }} />
                         ))}
                       </tr>
                     ))}

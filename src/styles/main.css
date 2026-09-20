@@ -545,15 +545,28 @@ body {
 /* Responsive Tables */
 .table-container {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   margin: 1.5rem 0 2rem;
   border: 1px solid var(--border-medium);
   border-radius: 8px;
   background: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.table-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
 }
 
 .styled-table {
   width: 100%;
+  min-width: 480px;
   border-collapse: collapse;
   font-size: 0.9rem;
   text-align: left;
@@ -565,12 +578,15 @@ body {
   font-weight: 600;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--border-medium);
+  white-space: nowrap;
 }
 
 .styled-table td {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--border-subtle);
   color: #cbd5e1;
+  vertical-align: top;
+  line-height: 1.6;
 }
 
 .styled-table tr:last-child td {
