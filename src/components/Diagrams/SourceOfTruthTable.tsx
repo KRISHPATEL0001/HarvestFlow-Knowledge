@@ -324,7 +324,7 @@ export const FarmerJourneyStepper: React.FC = () => {
           <span className="project-tag">Farmer Lifecycle</span>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '0.85rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '0.85rem' }}>
           <div style={{ background: 'var(--bg-tertiary)', padding: '0.85rem', borderRadius: '6px' }}>
             <div style={{ fontSize: '0.72rem', color: 'var(--accent-blue)', fontWeight: 700, textTransform: 'uppercase' }}>Farmer Action</div>
             <div style={{ fontSize: '0.88rem', color: '#e2e8f0', marginTop: '0.25rem' }}>{steps[currentStep].farmerAction}</div>

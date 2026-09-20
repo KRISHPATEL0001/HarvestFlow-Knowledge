@@ -71,7 +71,7 @@ export const OneActionEffectsDiagram: React.FC = () => {
         </div>
 
         {/* The 5 Effects */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.75rem', width: '100%' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 150px), 1fr))', gap: '0.75rem', width: '100%' }}>
           {effects.map((eff) => (
             <div
               key={eff.num}
@@ -249,7 +249,7 @@ export const PaymentLifecycleDiagram: React.FC = () => {
               onClick={() => setSelectedMilestone(idx)}
               role="button"
               tabIndex={0}
-              style={{ flex: 1, minWidth: '180px', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
+              style={{ flex: 1, minWidth: 'min(100%, 140px)', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
             >
               <span style={{ fontSize: '0.7rem', color: 'var(--accent-blue)', fontFamily: 'var(--font-mono)' }}>MILESTONE {m.step}</span>
               <span style={{ fontSize: '0.9rem', fontWeight: 700 }}>{m.title}</span>

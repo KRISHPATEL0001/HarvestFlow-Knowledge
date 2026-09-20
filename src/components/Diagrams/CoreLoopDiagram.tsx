@@ -113,7 +113,7 @@ export const CoreLoopDiagram: React.FC = () => {
           “{selectedNode.question}”
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '1rem' }}>
           <div style={{ background: 'var(--bg-tertiary)', padding: '0.85rem', borderRadius: '6px', borderLeft: '3px solid var(--accent-blue)' }}>
             <div style={{ fontSize: '0.75rem', color: 'var(--accent-blue)', fontWeight: 700, textTransform: 'uppercase' }}>Operational Action</div>
             <div style={{ fontSize: '0.88rem', color: '#e2e8f0', marginTop: '0.25rem' }}>{selectedNode.action}</div>

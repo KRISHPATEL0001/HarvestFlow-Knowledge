@@ -105,7 +105,7 @@ export const ProblemJourneyDiagram: React.FC = () => {
           <span className="project-tag" style={{ fontSize: '0.65rem' }}>Lifecycle Step</span>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '1rem' }}>
           <div style={{ background: 'var(--bg-tertiary)', padding: '0.85rem', borderRadius: '6px', borderLeft: '3px solid var(--accent-amber)' }}>
             <div style={{ fontSize: '0.75rem', color: 'var(--accent-amber)', fontWeight: 700, textTransform: 'uppercase' }}>Visible Symptom</div>
             <div style={{ fontSize: '0.88rem', color: '#e2e8f0', marginTop: '0.25rem' }}>{selectedStage.symptom}</div>

@@ -109,7 +109,7 @@ export const DisruptionFlowDiagram: React.FC = () => {
           </span>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '0.85rem', marginTop: '0.75rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '0.85rem', marginTop: '0.75rem' }}>
           <div style={{ background: 'var(--bg-tertiary)', padding: '0.85rem', borderRadius: '6px' }}>
             <div style={{ fontSize: '0.72rem', color: 'var(--accent-blue)', fontWeight: 700, textTransform: 'uppercase' }}>System Action</div>
             <div style={{ fontSize: '0.85rem', color: '#e2e8f0', marginTop: '0.25rem' }}>{activeStep.systemAction}</div>

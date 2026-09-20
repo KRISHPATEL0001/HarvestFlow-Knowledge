@@ -102,6 +102,14 @@ export const App: React.FC = () => {
           onCloseMobile={() => setIsMobileMenuOpen(false)}
         />
 
+        {isMobileMenuOpen && (
+          <div
+            className="mobile-backdrop"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+
         <main className="content-wrapper">
           {currentSpecialView === 'glossary' && (
             <GlossaryView onNavigateHome={() => navigateToChapter('00-overview')} />

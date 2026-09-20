@@ -81,7 +81,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
   background: rgba(245, 158, 11, 0.12);
   border: 1px dashed rgba(245, 158, 11, 0.4);
   border-radius: 6px;
@@ -90,6 +92,8 @@
   margin-bottom: 1.25rem;
   font-weight: 600;
   letter-spacing: 0.04em;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 /* Interactive Diagram Wrapper */
@@ -101,7 +105,9 @@
   margin: 2rem 0;
   box-shadow: var(--shadow-md);
   position: relative;
-  overflow: hidden;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .diagram-header {
@@ -488,4 +494,57 @@
   color: var(--accent-emerald-light);
   padding: 0.1rem 0.2rem;
   border-radius: 2px;
+}
+
+/* Mobile Backdrop */
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 55;
+}
+
+@media (max-width: 640px) {
+  .interactive-diagram-container {
+    padding: 1rem 0.75rem;
+    margin: 1.25rem 0;
+  }
+  .diagram-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  .diagram-title {
+    font-size: 1rem;
+  }
+  .journey-flow-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.5rem;
+  }
+  .journey-step-card {
+    padding: 0.75rem 0.5rem;
+  }
+  .calc-result-display {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .calc-result-val {
+    font-size: 1.3rem;
+  }
+  .queue-states-track {
+    padding: 0.75rem 0;
+  }
+  .state-bubble {
+    min-width: 95px;
+    padding: 0.5rem 0.5rem;
+  }
+  .search-modal-backdrop {
+    padding: 1rem 0.75rem;
+    align-items: flex-start;
+  }
+  .search-modal-container {
+    max-height: 85vh;
+  }
 }
