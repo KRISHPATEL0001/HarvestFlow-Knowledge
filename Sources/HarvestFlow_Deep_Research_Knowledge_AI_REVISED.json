@@ -1,0 +1,290 @@
+{
+  "format": "HarvestFlow AI Knowledge Base — Lean Canonical JSON",
+  "format_version": "2.0",
+  "status": "canonical_after_necessity_review",
+  "project": {
+    "name": "HarvestFlow",
+    "full_name": "HarvestFlow — Smart Crop Procurement & Queue Management",
+    "sih_problem_statement": "SIH26032",
+    "team": "Digital Dynamos",
+    "revision": "20 September 2026"
+  },
+  "purpose": [
+    "AI-assisted internal website",
+    "team retrieval/reference",
+    "implementation consistency",
+    "scope and feature validation"
+  ],
+  "decision_summary": {
+    "core": "Government-compatible procurement coordination layer",
+    "ai_ml": "EXCLUDED from core, MVP, differentiator and architecture",
+    "smart_automation": "Deterministic operational automation",
+    "government_systems": "Integrate with, do not replace authoritative systems",
+    "research_status": "Generic analytical research sufficient; pilot-specific official validation remains required before deployment claims"
+  },
+  "evidence_precedence": [
+    "Official SIH26032 scope",
+    "Pilot-specific official government/agency evidence",
+    "Current official government system documentation",
+    "Validated field/academic research",
+    "Approved project design decisions",
+    "Current prototype implementation",
+    "Illustrative examples"
+  ],
+  "labels": [
+    "OFFICIAL",
+    "RESEARCH",
+    "FIELD REPORT",
+    "CURRENT PROTOTYPE",
+    "PROPOSED",
+    "PILOT HYPOTHESIS",
+    "ILLUSTRATIVE",
+    "OUT OF SCOPE"
+  ],
+  "excluded_features": [
+    {
+      "feature": "AI/ML",
+      "reason": "Not required to solve SIH26032; adds complexity without demonstrated need/data."
+    },
+    {
+      "feature": "AI chatbot as differentiator",
+      "reason": "Does not solve the operational coordination problem."
+    },
+    {
+      "feature": "Blockchain",
+      "reason": "No demonstrated need for this coordination problem."
+    },
+    {
+      "feature": "Facial recognition",
+      "reason": "Unnecessary for the core workflow."
+    },
+    {
+      "feature": "Direct bank/payment execution",
+      "reason": "Outside HarvestFlow ownership and creates financial-system risk."
+    },
+    {
+      "feature": "ERP replacement",
+      "reason": "Duplicates existing government systems and increases adoption risk."
+    },
+    {
+      "feature": "Fleet/warehouse management",
+      "reason": "Relevant only as capacity/disruption inputs unless pilot evidence requires deeper scope."
+    },
+    {
+      "feature": "National forecasting",
+      "reason": "Outside SIH26032 core and unsupported without appropriate data."
+    },
+    {
+      "feature": "Full offline farmer booking",
+      "reason": "Current capacity is required to avoid booking conflicts."
+    },
+    {
+      "feature": "Complex microservices/streaming infrastructure",
+      "reason": "Not required to prove the SIH solution; add only if measured scale justifies it."
+    }
+  ],
+  "source_urls": {
+    "mp_e_uparjan": "https://mpeuparjan.nic.in/",
+    "telangana_opms": "https://www.cgg.gov.in/it_project/online-procurement-management-system-opms/",
+    "chhattisgarh_token": "https://jansampark.cg.gov.in/Janman/EN_OCT2025/JanmanOct2025_eng.pdf",
+    "hp_procurement": "https://hpappp.hp.gov.in/Citizen/SoftwareInterfaces.aspx",
+    "gigw": "https://guidelines.india.gov.in/",
+    "api_setu": "https://www.apisetu.gov.in/",
+    "api_setu_docs": "https://docs.apisetu.gov.in/"
+  },
+  "content_markdown_preamble": "",
+  "sections": [
+    {
+      "title": "HarvestFlow — Lean Deep-Research Source of Truth",
+      "level": 1,
+      "content_markdown": "**Project:** HarvestFlow — Smart Crop Procurement & Queue Management  \n**SIH Problem Statement:** SIH26032  \n**Team:** Digital Dynamos  \n**Revision:** 20 September 2026  \n**Status:** Revised after source audit and necessity review\n\n---\n\n## 0. Executive decision\n\nThe previous knowledge base was **research-rich but too broad**. It contained useful operational reasoning, but also repeated the same ideas, expanded optional technology too far, and kept AI/ML as a visible section even after concluding it was unnecessary.\n\nThis revision is the **lean source of truth**.\n\n### Final position\n\n> **HarvestFlow is a government-compatible procurement coordination layer that connects approved farmer/transaction records with capacity-aware appointments, centre check-in, operational queue state, event-based notifications, disruption handling, and verified procurement/payment visibility — without replacing the government's authoritative procurement and payment systems.**\n\nThe project does **not** need AI/ML to be unique, and it should not add AI merely because the SIH theme says Smart Automation.\n\n**Smart Automation here means reliable rule-based automation of a real operational workflow.**\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "1. Scope lock — SIH26032",
+      "level": 1,
+      "content_markdown": "### Official problem statement\n\n**“Farmers often face long waiting times, lack of information regarding procurement schedules, and uncertainty about procurement status.”**\n\nExpected solution:\n\n1. Farmer registration and slot booking.\n2. Real-time queue management.\n3. SMS/app notifications.\n4. Procurement and payment status tracking.\n5. Reduction of congestion and waiting time at procurement centres.\n\nOrganization: Ministry of Consumer Affairs, Food & Public Distribution  \nDepartment: Department of Consumer Affairs (DoCA)  \nCategory: Software  \nTheme: Smart Automation.\n\nThese requirements are the hard boundary. Anything that does not directly improve this journey is not part of the core solution.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "2. What the problem really is",
+      "level": 1,
+      "content_markdown": "The visible symptoms are:\n\n- long waiting;\n- uncertain procurement schedules;\n- unclear queue position;\n- repeated journeys;\n- uncertain procurement status;\n- uncertain payment status.\n\nThe deeper problem is:\n\n> **The farmer's planned arrival is not reliably coordinated with the centre's actual operational state.**\n\nA useful systems view is:\n\n**PLAN → ARRIVE → QUEUE → PROCESS → COMPLETE → TRACK**\n\nThe failure can happen at every transition.\n\n### Root causes\n\n#### A. Arrival mismatch\nFarmers may arrive without dependable information about when the centre can actually receive them.\n\n#### B. Capacity mismatch\nNominal capacity can differ from usable capacity because of staffing, equipment, operating hours, storage, transport or other local constraints.\n\n#### C. Queue mismatch\nA booking is not a check-in, and a check-in is not the same as being processed.\n\n#### D. Information mismatch\nDifferent systems may own registration, procurement and payment information while the farmer experiences them as one journey.\n\n#### E. Operator workload\nCentre staff are already busy. A system that requires duplicate data entry will become stale.\n\n#### F. Disruption mismatch\nEquipment failure, closure, connectivity problems or other operational changes can invalidate a previously valid schedule.\n\n#### G. Payment visibility mismatch\nProcurement completion and payment completion are different events.\n\nThese are **research hypotheses to validate at the selected pilot centre**, not universal claims about every centre.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "3. Existing systems — the most important research finding",
+      "level": 1,
+      "content_markdown": "HarvestFlow must not pretend that government has no digital procurement infrastructure.\n\nCurrent official/publicly documented systems already provide substantial pieces of the journey.\n\n### Madhya Pradesh — e-Uparjan\n\nPublic documentation describes:\n\n- farmer registration;\n- slot booking;\n- procurement;\n- transport;\n- storage;\n- payment;\n- receipts.\n\nSource: https://mpeuparjan.nic.in/\n\n### Telangana — OPMS\n\nThe Centre for Good Governance describes a system that captures:\n\n- paddy procurement;\n- transport to mills;\n- farmer payments;\n- farmer/miller information at procurement centres;\n- dashboards/reports;\n- SMS;\n- centre-side tablet-based data collection.\n\nSource: https://www.cgg.gov.in/it_project/online-procurement-management-system-opms/\n\n### Chhattisgarh\n\nGovernment material for KMS 2025–26 describes:\n\n- online token booking;\n- e-KYC/Agristack-related registration;\n- biometric verification;\n- an Integrated Command and Control Centre;\n- monitoring of procurement, storage and transport;\n- assisted/offline token arrangements through societies.\n\nSource: https://jansampark.cg.gov.in/Janman/EN_OCT2025/JanmanOct2025_eng.pdf\n\n### Himachal Pradesh\n\nThe public procurement portal describes:\n\n- farmer registration;\n- token generation;\n- procurement entry;\n- receipts;\n- transfer of approved farmer data to CFPP through API;\n- payment data exchange.\n\nSource: https://hpappp.hp.gov.in/Citizen/SoftwareInterfaces.aspx\n\n### Research conclusion\n\nThese examples prove that:\n\n> **The problem is not “government has no software.”**\n\nThey also mean HarvestFlow must **not** sell registration, token generation, procurement entry or payment tracking as if those capabilities alone are novel.\n\nThe defensible proposition is:\n\n> **HarvestFlow coordinates the farmer's appointment and centre-operational state across existing systems, rather than replacing those systems.**\n\n### Important qualification\n\nThe research does **not** prove that every existing state system lacks a capacity-aware live coordination layer.\n\nIt only establishes that the publicly documented systems reviewed provide different combinations of registration, token/slot booking, procurement, payment, transport, monitoring and notifications.\n\nTherefore:\n\n**Do not say “no existing system does this.”**\n\nSay:\n\n> “Our research identified a need to validate whether the selected state's existing system already synchronizes appointment capacity, live queue state and operational disruptions. HarvestFlow is designed to fill that coordination gap if it exists.”\n\nThat is a much stronger and safer claim.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "4. What HarvestFlow should actually add",
+      "level": 1,
+      "content_markdown": "HarvestFlow should add only the missing coordination capabilities that the pilot confirms are needed.\n\n## Core coordination layer\n\n### 4.1 Capacity-aware booking\n\nA farmer should not receive a slot simply because a calendar has an empty time cell.\n\nThe slot should be based on the **currently usable intake capacity configured for that centre**.\n\nHowever, do not attempt to automatically calculate physical capacity from every machine, worker, truck and warehouse in the MVP.\n\nUse two levels:\n\n**Baseline capacity**\n- configured by an authorized officer/department;\n- based on the actual local procurement process.\n\n**Operational adjustment**\n- centre operator can reduce today's usable capacity when an approved operational problem occurs.\n\nExample:\n\n`Normal usable capacity: 400 q`\n\n`Equipment/storage/staff issue: -100 q`\n\n`Current usable capacity: 300 q`\n\nEvery adjustment records:\n- actor;\n- time;\n- reason;\n- old value;\n- new value.\n\nThe 20% reserve previously used in examples is **not a government rule**. Do not hard-code it. Make reserve policy configurable and validate it locally.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "5. Slot, token, check-in and queue are different",
+      "level": 1,
+      "content_markdown": "This distinction is central.\n\n| Concept | Answers |\n|---|---|\n| Slot | When should I come? |\n| Booking | Is my arrival window confirmed? |\n| Token | What is my visit reference? |\n| Check-in | Have I actually arrived? |\n| Queue | Where am I in the current operational process? |\n| Procurement status | What happened to my crop? |\n| Payment status | What happened after procurement financially? |\n\nDo not merge these states.\n\n### Token\n\nUse the token as the universal farmer-facing visit reference.\n\nQR may be used as a convenience, but **QR is not the core feature**.\n\n### Check-in\n\nCall it:\n\n> **Farmer Check-in**\n\nDo not call check-in “identity verification.”\n\nIdentity should come from whatever authorized government process the pilot already uses.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "6. Queue design",
+      "level": 1,
+      "content_markdown": "The official requirement says real-time queue management.\n\nThe MVP therefore needs:\n\n- checked-in farmers;\n- queue order;\n- current processing state;\n- stage/status;\n- farmer's position where meaningful;\n- last update time.\n\nA queue can be represented as a state machine:\n\n`BOOKED → CHECKED_IN → WAITING → PROCESSING → COMPLETED`\n\nAdditional states such as quality pending or weighing pending should only be introduced if the selected pilot process actually uses separate operational stages.\n\n### Waiting-time estimate\n\nThis is **optional**, not the core of queue management.\n\nIf used, show an estimate/range only when enough recent operational data exists.\n\nExample:\n\n> Approximately 30–50 minutes  \n> Last updated 11:20 AM\n\nIf not enough data exists:\n\n> Wait estimate unavailable — queue information is being updated.\n\nNever promise an exact waiting time.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "7. Notifications",
+      "level": 1,
+      "content_markdown": "Notifications are core because SMS/app notification is explicitly in SIH26032.\n\nUse **event-based notifications**, not unnecessary reminders.\n\nImportant events:\n\n### Booking\n- booking confirmed;\n- booking changed;\n- booking cancelled.\n\n### Centre\n- centre closed;\n- capacity reduced;\n- schedule changed;\n- disruption resolved.\n\n### Queue\n- check-in confirmed;\n- turn approaching;\n- queue paused/resumed.\n\n### Procurement\n- quality result recorded;\n- accepted/rejected;\n- procurement completed.\n\n### Payment\n- payment submitted;\n- payment status changed;\n- payment failed/returned where supported;\n- credit confirmed by an authoritative source.\n\n### Channel priority\n\n**SMS is essential.**\n\nA smartphone app is useful but must not be mandatory.\n\nPrinted confirmation/token and assisted access should remain possible.\n\nDo not add IVR unless the selected government pilot explicitly requires it.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "8. Operator workflow — the biggest adoption test",
+      "level": 1,
+      "content_markdown": "The operator is the critical human in the system.\n\n### Non-negotiable rule\n\n> **Never ask an operator to re-enter information that an authoritative government system already knows.**\n\nHarvestFlow should collect only the operational events it needs.\n\n### Minimum operator actions\n\n1. Open/close centre.\n2. Adjust today's capacity when required.\n3. Check farmer in using token.\n4. Record required operational stage/event.\n5. Declare disruption.\n6. Resume normal operation.\n7. Resolve exceptions where authorized.\n\nOne action should trigger multiple digital effects.\n\nExample:\n\n`Check-in token`\n\n→ arrival timestamp  \n→ queue entry  \n→ farmer status update  \n→ officer visibility  \n→ audit event.\n\n### If the operator does not update\n\nThis is a critical failure case.\n\nThe system must:\n\n- show the last update time;\n- mark data as stale after a configured threshold;\n- avoid presenting stale information as real-time;\n- surface stale centres to the supervising officer;\n- allow assisted/manual escalation.\n\nDo not invent live status when no one has updated the system.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "9. Source of truth",
+      "level": 1,
+      "content_markdown": "Before coding, define ownership.\n\n| Information | Authority |\n|---|---|\n| Farmer registration | Existing authorized government system |\n| Eligibility | Government/agency rules |\n| Procurement policy | Department/agency |\n| Booking | HarvestFlow |\n| Check-in | HarvestFlow/approved source |\n| Live queue | HarvestFlow operational layer |\n| Capacity signal | Authorized centre/department workflow |\n| Quality result | Authorized procurement process |\n| Accepted weight | Authoritative procurement system |\n| Purchase record | Existing procurement system |\n| Payment instruction | Authorized payment/procurement system |\n| Bank credit | Authoritative payment/bank record |\n| Notification delivery | HarvestFlow/approved notification service |\n| HarvestFlow audit | HarvestFlow |\n\n### Core principle\n\n> **HarvestFlow should own coordination, not government procurement or financial truth.**\n\nIf two systems disagree:\n\n- do not silently overwrite;\n- record the conflict;\n- identify both sources;\n- identify timestamps;\n- send it to an authorized resolver.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "10. Payment",
+      "level": 1,
+      "content_markdown": "Payment tracking is required.\n\nBut HarvestFlow should **not claim that it makes government payment faster**.\n\nIt improves:\n\n- visibility;\n- status clarity;\n- identification of exceptions;\n- responsibility/escalation;\n- synchronization with the authoritative payment system.\n\nLifecycle should be configurable, for example:\n\n`Purchase recorded → Payment submitted → Credit confirmed`\n\nOptional failure/return states may be added if the pilot workflow supports them.\n\nOnly show:\n\n> **Payment credited**\n\nwhen the authoritative source confirms it.\n\nOtherwise show:\n\n> **Payment submitted / processing**\n\nwith the last verification time.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "11. Quality and rejection",
+      "level": 1,
+      "content_markdown": "Quality should be a proper status branch, not an error popup.\n\nMinimum conceptual states:\n\n`Quality pending → Accepted / Rejected`\n\nIf the agency permits further action, additional states can exist:\n\n`Rejected → Retest/Dispute/Corrective action`\n\nThe system should show:\n\n- result;\n- reason/category where permitted;\n- timestamp;\n- responsible actor;\n- next permitted action.\n\nDo not invent quality rules.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "12. Disruption handling",
+      "level": 1,
+      "content_markdown": "This is one of HarvestFlow's strongest practical features.\n\nExample:\n\n**Weighing equipment unavailable**\n\n→ operator declares disruption  \n→ usable capacity reduced  \n→ affected bookings identified  \n→ new bookings restricted if configured  \n→ affected farmers notified  \n→ officer sees exception  \n→ centre resumes  \n→ capacity restored according to authorized rule.\n\nOther examples:\n\n- centre closure;\n- staff shortage;\n- storage constraint;\n- transport constraint;\n- connectivity problem.\n\nThe exact response must be configurable.\n\n### Non-negotiable\n\n> A stale capacity value is worse than no capacity value.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "13. Transport and storage",
+      "level": 1,
+      "content_markdown": "Transport and storage are **not separate HarvestFlow products**.\n\nThey matter because they can affect whether a centre can continue receiving crop.\n\nTherefore they should be treated as:\n\n> **capacity/disruption inputs**\n\nnot as a new logistics-management system.\n\nDo not build:\n\n- fleet management;\n- route optimization;\n- warehouse management;\n- mill management;\n\nunless the selected government workflow explicitly makes one of these necessary for the SIH26032 coordination problem.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "14. Assisted access and inclusion",
+      "level": 1,
+      "content_markdown": "A farmer should not be forced into:\n\n**English + smartphone + app + continuous internet.**\n\nCore access channels:\n\n- responsive web/app;\n- SMS;\n- printed token/confirmation;\n- authorized assisted booking;\n- centre-assisted access.\n\nLocal language support is an operational requirement.\n\nGIGW 3.0 covers usability, accessibility, security and lifecycle expectations for government websites/apps and includes WCAG 2.1 Level AA guidance. citeturn0search0turn0search3\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "15. Offline operation",
+      "level": 1,
+      "content_markdown": "Do **not** promise full offline farmer booking.\n\nBooking needs current capacity to avoid conflicts.\n\nIf the pilot requires centre-side connectivity fallback, support only a controlled contingency such as:\n\n- token/check-in event capture;\n- timestamp;\n- operator ID;\n- later synchronization;\n- duplicate/conflict handling.\n\nDo not allow offline mode to independently become the authoritative government procurement/payment system.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "16. Integration",
+      "level": 1,
+      "content_markdown": "HarvestFlow should never assume direct database access to a government system.\n\nPreferred:\n\n`HarvestFlow → approved API/integration → Government system`\n\nAPI Setu is an official government API platform intended for API discovery, publishing, consumption and secure interoperability. citeturn0search2turn0search13\n\nBut:\n\n> **Do not claim an integration exists until the relevant API is actually available and authorized.**\n\nIf no API exists:\n\n1. approved file/data exchange may be used if permitted;\n2. otherwise HarvestFlow operates only its coordination functions;\n3. authoritative procurement/payment data remains in the government system.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "17. Architecture — keep it simple",
+      "level": 1,
+      "content_markdown": "Do not over-engineer the hackathon solution.\n\n### Logical architecture\n\n```text\nExisting Government Systems\n        │\n        │ approved integration\n        ▼\n┌──────────────────────────────┐\n│         HarvestFlow          │\n│                              │\n│ Booking & Capacity           │\n│ Check-in & Queue             │\n│ Notifications                │\n│ Disruption Handling          │\n│ Status Visibility            │\n│ Exceptions & Audit           │\n└──────────────┬───────────────┘\n               │\n       ┌───────┴────────┐\n       ▼                ▼\n    Farmer           Centre\n   SMS/Web          Operator\n       │                │\n       └───────┬────────┘\n               ▼\n       Supervising Officer\n```\n\n### Technology principle\n\nFor the pilot, prefer a **simple maintainable web application with a relational database and normal API layer**.\n\nSpecific choices such as:\n\n- Kafka;\n- RabbitMQ;\n- Valkey/Redis;\n- Kubernetes;\n- microservices;\n- Python ML services;\n- OpenTelemetry;\n\nare **not required to prove the SIH26032 solution**.\n\nIntroduce them only if measured scale or deployment constraints justify them.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "18. Security and data governance",
+      "level": 1,
+      "content_markdown": "Security is necessary, but do not turn the knowledge base into a catalogue of every enterprise security product.\n\nMinimum principles:\n\n- role-based access;\n- server-side authorization;\n- privileged-user protection;\n- secure sessions;\n- encryption in transit;\n- appropriate encryption at rest;\n- rate limiting;\n- audit logs;\n- secure secrets;\n- backups;\n- restore testing;\n- vulnerability/security testing.\n\nFor every data field ask:\n\n1. Why is it needed?\n2. Who owns it?\n3. Who can see it?\n4. How long is it retained?\n5. Is it already available from an authoritative system?\n\nGIGW 3.0 includes government guidance on cybersecurity, accessibility and lifecycle management. citeturn0search0turn0search8\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "19. AI/ML decision — explicitly removed",
+      "level": 1,
+      "content_markdown": "## AI/ML is NOT a HarvestFlow feature.\n\nNot MVP.\n\nNot a differentiator.\n\nNot part of the core architecture.\n\nNot something to add just because the theme is Smart Automation.\n\n### Why?\n\nThe SIH problem can be solved by deterministic operational automation.\n\nThe difficult part is:\n\n- obtaining trustworthy operational state;\n- coordinating bookings;\n- preventing overbooking;\n- maintaining queue state;\n- notifying farmers;\n- handling disruptions;\n- showing verified status.\n\nAdding ML does not solve those foundational problems.\n\nCentre-specific data may also be sparse and highly variable.\n\n### Therefore\n\n**No ML model.**\n\n**No AI prediction dashboard.**\n\n**No “AI-powered procurement.”**\n\n**No AI eligibility decision.**\n\n**No AI queue prioritization.**\n\n**No AI payment decision.**\n\nIf Maya exists in the current prototype, treat it as a **prototype help/FAQ feature only**, not as part of the HarvestFlow solution proposition.\n\nThe project should be able to explain its entire core value without mentioning AI.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "20. Other things deliberately excluded",
+      "level": 1,
+      "content_markdown": "These are not merely “future features”; they are excluded unless new evidence creates a real requirement.\n\n- blockchain;\n- facial recognition;\n- autonomous procurement decisions;\n- autonomous eligibility decisions;\n- direct bank/payment execution;\n- replacement of the procurement ERP;\n- fleet-management system;\n- warehouse-management system;\n- national forecasting;\n- crop-disease prediction;\n- market-price prediction;\n- unnecessary IoT;\n- unnecessary biometric infrastructure;\n- full offline farmer booking;\n- nationwide deployment claim;\n- complex microservice architecture solely for presentation;\n- AI chatbot as a core differentiator.\n\n### Rule\n\n> **A feature needs a problem, an owner, a data source, an operational workflow and a measurable benefit before it enters HarvestFlow.**\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "21. What is actually unique/valuable",
+      "level": 1,
+      "content_markdown": "Do not claim that HarvestFlow invented:\n\n- online registration;\n- digital tokens;\n- slot booking;\n- SMS;\n- procurement recording;\n- payment tracking.\n\nExisting government systems already demonstrate many of these capabilities.\n\nThe value proposition is the **coordination loop**:\n\n**CURRENT CAPACITY → SLOT → ARRIVAL → CHECK-IN → QUEUE → OPERATIONAL EVENT → CAPACITY UPDATE → NOTIFICATION → EXCEPTION**\n\nThat loop connects the farmer-facing schedule to what is actually happening at the centre.\n\nWhether the target state's existing system already performs all or part of this loop is a **pilot validation question**.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "22. MVP — only what is needed",
+      "level": 1,
+      "content_markdown": "## Farmer\n\n**Must have:**\n- registration/reference lookup;\n- eligible centre;\n- slot booking;\n- booking confirmation;\n- token;\n- check-in/queue status;\n- procurement status;\n- payment status;\n- SMS simulation.\n\n## Centre\n\n**Must have:**\n- today's bookings;\n- centre open/closed;\n- capacity adjustment;\n- token check-in;\n- queue;\n- required stage/status update;\n- disruption declaration.\n\n## Officer\n\n**Must have:**\n- centre overview;\n- stale-status/overload exceptions;\n- disruption visibility;\n- delayed-stage exceptions;\n- payment-status exceptions;\n- audit trail.\n\n## Core\n\n**Must have:**\n- capacity-aware booking;\n- concurrent booking protection;\n- queue state machine;\n- event notifications;\n- audit events.\n\n## Optional only if time permits\n\n- printable token;\n- QR;\n- assisted booking;\n- multilingual UI;\n- controlled centre-side offline contingency;\n- receipt.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "23. What should NOT be in the SIH demo",
+      "level": 1,
+      "content_markdown": "Do not spend hackathon time proving:\n\n- ML;\n- AI prediction;\n- blockchain;\n- Kubernetes;\n- Kafka;\n- advanced forecasting;\n- direct bank integration;\n- nationwide scaling;\n- facial recognition;\n- a new government ERP.\n\nThe demo should prove one complete operational journey.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "24. Ideal demonstration",
+      "level": 1,
+      "content_markdown": "Show one farmer.\n\n### Step 1 — Booking\n\nFarmer enters approved reference + crop + quantity.\n\nSystem shows eligible centre and available slot.\n\n### Step 2 — Confirmation\n\nFarmer receives:\n\n- centre;\n- date;\n- time;\n- token.\n\n### Step 3 — Centre disruption\n\nOperator reduces capacity because of an operational problem.\n\n### Step 4 — Automatic response\n\nHarvestFlow:\n\n- protects remaining capacity;\n- identifies affected bookings;\n- sends notification;\n- shows officer exception.\n\n### Step 5 — Farmer arrives\n\nToken is checked in.\n\n### Step 6 — Queue\n\nFarmer sees:\n\n- checked-in;\n- queue position/status;\n- last update.\n\n### Step 7 — Procurement\n\nCentre records the authorized stage.\n\n### Step 8 — Payment\n\nHarvestFlow displays the verified payment status from the authoritative source/simulation.\n\nThat demonstrates the complete SIH26032 journey without unnecessary technology theatre.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "25. Government adoption strategy",
+      "level": 1,
+      "content_markdown": "Do not propose nationwide deployment first.\n\n### Phase 0 — Discovery\n\nOne agency, one crop, one district, ideally one or two centres.\n\nDocument:\n\n- actual workflow;\n- existing software;\n- data owners;\n- operator actions;\n- token process;\n- capacity process;\n- quality process;\n- payment process;\n- connectivity;\n- devices;\n- APIs.\n\n### Phase 1 — Shadow mode\n\nObserve and compare the proposed coordination workflow without becoming authoritative.\n\n### Phase 2 — Assisted pilot\n\nIntroduce:\n\n- appointment coordination;\n- queue visibility;\n- notifications;\n- exception monitoring.\n\n### Phase 3 — Approved integration\n\nConnect authoritative systems where APIs/data exchange are approved.\n\n### Phase 4 — Scale\n\nOnly after measured pilot results justify it.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "26. What must be measured",
+      "level": 1,
+      "content_markdown": "Do not claim “waiting time reduced by X%” without a pilot.\n\n### Farmer\n\n- total visit time;\n- gate-to-exit time;\n- repeat journeys;\n- missed slots;\n- booking delay;\n- notification delivery;\n- status clarity.\n\n### Centre\n\n- arrivals/hour;\n- processing throughput;\n- queue depth;\n- overload events;\n- stale-status frequency;\n- operator actions per farmer;\n- data-entry time;\n- disruption response time.\n\n### Government\n\n- capacity utilization;\n- overloaded centres;\n- exception resolution;\n- payment-status visibility latency;\n- conflicting/duplicate records;\n- audit completeness.\n\n### Inclusion\n\n- assisted bookings;\n- SMS-only usage;\n- failed digital interactions;\n- language usage.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "27. The most important research limitation",
+      "level": 1,
+      "content_markdown": "The current research is sufficient for:\n\n- understanding SIH26032;\n- defining the root problem;\n- designing the conceptual solution;\n- challenging unnecessary features;\n- comparing existing systems;\n- defining a realistic MVP;\n- explaining government adoption.\n\n### No more broad/generic research is necessary right now.\n\nBut one category of research **is still mandatory before claiming the solution is deployment-ready**:\n\n> **Pilot-specific official evidence.**\n\nOnce the team chooses the target state/crop/agency, obtain that authority's:\n\n- procurement SOP;\n- token/slot rules;\n- eligibility rules;\n- centre workflow;\n- existing software/API documentation;\n- quality rules;\n- payment workflow;\n- data ownership;\n- operator process;\n- local-language requirements.\n\nThis is not “more research for the sake of research.” It is **validation of the exact environment in which HarvestFlow would operate.**\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "28. Evidence register",
+      "level": 1,
+      "content_markdown": "### Official/current system evidence\n\n- MP e-Uparjan — registration, slot booking, procurement, transport, storage, payment.\n- Telangana OPMS — procurement, transport, payment, centre-side digital capture, SMS.\n- Chhattisgarh — online tokens and command/control monitoring.\n- HP procurement portal — registration, tokens, procurement, CFPP/API exchange.\n- GIGW 3.0 — government web/app usability, accessibility, security and lifecycle.\n- API Setu — government API interoperability.\n\n### Government policy/review evidence\n\n- DFPD/PIB procurement-centre infrastructure and timely-payment review, 20 Feb 2026.\n- DFPD/PIB procurement/storage/stock-movement review, 1 Sep 2026.\n- West Bengal procurement guidelines covering operational procurement procedures.\n\n### Research evidence\n\n- Kerala farmer procurement constraints study.\n- Telangana decentralized procurement ground-level study.\n- procurement/storage/handling constraints research.\n- West Bengal procurement operations research.\n- West Bengal decentralized procurement research.\n\nThese sources are enough for the **generic analytical foundation**. They should not be treated as proof of the exact workflow in an unselected state.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "29. Evidence rules",
+      "level": 1,
+      "content_markdown": "Every statement must be classified as one of:\n\n**OFFICIAL** — official government source.  \n**RESEARCH** — academic/institutional evidence.  \n**FIELD REPORT** — documented local event/condition.  \n**CURRENT PROTOTYPE** — actually implemented.  \n**PROPOSED** — design decision.  \n**PILOT HYPOTHESIS** — requires validation.  \n**ILLUSTRATIVE** — example only.  \n**OUT OF SCOPE** — deliberately excluded.\n\nNever turn:\n\n`PROPOSED → CURRENT`\n\nor:\n\n`ILLUSTRATIVE → FACT`\n\nor:\n\n`ONE STATE'S WORKFLOW → INDIA-WIDE RULE`.\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "30. Final design rules",
+      "level": 1,
+      "content_markdown": "1. **Solve SIH26032, not “agriculture” generally.**\n2. **Automation does not require AI.**\n3. **Do not duplicate government procurement truth.**\n4. **Do not claim existing systems are inadequate without evidence.**\n5. **Do not claim HarvestFlow is unique because it has a chatbot.**\n6. **Do not make operators perform duplicate data entry.**\n7. **Do not make smartphones mandatory.**\n8. **Do not fake real-time information.**\n9. **Do not guarantee waiting times.**\n10. **Do not claim payment execution.**\n11. **Do not hard-code one state's workflow as universal.**\n12. **Do not over-engineer the architecture.**\n13. **Do not add a feature without a real operational reason.**\n14. **Every important status must have an owner.**\n15. **Every manual change must have actor + timestamp + reason.**\n16. **Every integration must have a failure/fallback path.**\n17. **Every major claim must have evidence or be labelled a hypothesis.**\n18. **Pilot before scale.**\n19. **Measure before claiming impact.**\n20. **If removing a feature makes the solution clearer without weakening SIH26032 coverage, remove it.**\n\n---",
+      "subsections": []
+    },
+    {
+      "title": "31. Final HarvestFlow definition",
+      "level": 1,
+      "content_markdown": "> **HarvestFlow is a thin, government-compatible coordination layer that helps procurement centres schedule farmer arrivals against usable capacity, manage check-in and operational queues, communicate changes through SMS/app channels, handle disruptions, and show verified procurement/payment status — while leaving authoritative registration, procurement and payment records with the systems that already own them.**\n\n### Core value\n\n**RIGHT FARMER → RIGHT CENTRE → RIGHT TIME → RIGHT QUEUE → COMPLETE STATUS**\n\n### Core automation\n\n**CAPACITY → BOOKING → CHECK-IN → QUEUE → EVENT → NOTIFICATION → EXCEPTION**\n\n### Core government principle\n\n**INTEGRATE → MINIMIZE WORK → AUDIT → PILOT → MEASURE → SCALE**\n\n### Final rule\n\n> **If a feature is not required to make this journey more predictable, it does not belong in HarvestFlow.**",
+      "subsections": []
+    }
+  ]
+}

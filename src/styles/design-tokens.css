@@ -1,0 +1,94 @@
+:root {
+  /* Color Palette - Deep Technical / Slate & Emerald theme */
+  --bg-primary: #0a0f1d;
+  --bg-secondary: #0f172a;
+  --bg-tertiary: #1e293b;
+  --bg-card: rgba(15, 23, 42, 0.85);
+  --bg-card-hover: rgba(30, 41, 59, 0.9);
+  --bg-glass: rgba(15, 23, 42, 0.75);
+  --bg-input: #1e293b;
+  
+  /* Text colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #0f172a;
+  
+  /* Brand & Accents */
+  --accent-emerald: #10b981;
+  --accent-emerald-light: #34d399;
+  --accent-emerald-dim: rgba(16, 185, 129, 0.15);
+  --accent-emerald-glow: rgba(16, 185, 129, 0.3);
+  
+  --accent-blue: #38bdf8;
+  --accent-blue-dim: rgba(56, 189, 248, 0.15);
+  
+  --accent-amber: #f59e0b;
+  --accent-amber-dim: rgba(245, 158, 11, 0.15);
+  
+  --accent-rose: #f43f5e;
+  --accent-rose-dim: rgba(244, 63, 94, 0.15);
+  
+  --accent-purple: #a855f7;
+  --accent-purple-dim: rgba(168, 85, 247, 0.15);
+
+  /* Evidence Badge Colors */
+  --badge-official-bg: rgba(16, 185, 129, 0.18);
+  --badge-official-text: #34d399;
+  --badge-official-border: #059669;
+  
+  --badge-research-bg: rgba(56, 189, 248, 0.18);
+  --badge-research-text: #38bdf8;
+  --badge-research-border: #0284c7;
+  
+  --badge-field-bg: rgba(245, 158, 11, 0.18);
+  --badge-field-text: #fbbf24;
+  --badge-field-border: #d97706;
+  
+  --badge-proto-bg: rgba(168, 85, 247, 0.18);
+  --badge-proto-text: #c084fc;
+  --badge-proto-border: #9333ea;
+  
+  --badge-proposed-bg: rgba(99, 102, 241, 0.18);
+  --badge-proposed-text: #818cf8;
+  --badge-proposed-border: #4f46e5;
+  
+  --badge-hypothesis-bg: rgba(236, 72, 153, 0.18);
+  --badge-hypothesis-text: #f472b6;
+  --badge-hypothesis-border: #db2777;
+  
+  --badge-illustrative-bg: rgba(148, 163, 184, 0.18);
+  --badge-illustrative-text: #cbd5e1;
+  --badge-illustrative-border: #64748b;
+  
+  --badge-excluded-bg: rgba(244, 63, 94, 0.18);
+  --badge-excluded-text: #fb7185;
+  --badge-excluded-border: #e11d48;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.25);
+  --border-accent: rgba(16, 185, 129, 0.4);
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 25px rgba(16, 185, 129, 0.2);
+
+  /* Layout */
+  --header-height: 64px;
+  --sidebar-width: 320px;
+  --content-max-width: 960px;
+  --toc-width: 240px;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-display: 'Outfit', var(--font-sans);
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, monospace;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
